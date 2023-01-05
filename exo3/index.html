@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xp Exo 3</title>
+    <style>
+        #target {
+          width: 200px;
+          height: 200px;
+          position: relative;
+          background: yellow;
+        }
+        #box {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background-color: red;
+        }
+
+        
+        .over {
+        border: 2px dashed #000;
+        }
+
+        </style>
+</head>
+<body>
+    <div id="target"
+    ondragenter="allowEnter(event)"
+    ondragover="allowDrop(event)"
+    ondrop="dragDrop(event)"
+    ondragleave="allowLeave(event)"
+    ></div>
+        <br>
+    <div draggable="true" ondragstart="dragStart(event)" id="box"></div>
+</body>
+<script src="js/script.js"></script>
+</html>
