@@ -1,6 +1,6 @@
-var divContainer = document.getElementById('container')
-var btnClear = document.getElementById('clear')
-
+let divContainer = document.getElementById('container')
+let btnClear = document.getElementById('clear')
+let intervalToAdd
 
 // Partie I : Afficer hello world après 2 secondes
 function showAlert(){
@@ -9,21 +9,31 @@ function showAlert(){
 setTimeout(showAlert , 2000)
 
 
-// Partie II : 
+// Partie II : ajout d'un paragraphe après 2 secondes
 function addContainerChilder(){
-    var paragraphe = document.createElement('p')
+    let paragraphe = document.createElement('p')
     paragraphe.textContent = 'Hello World'
     divContainer.appendChild(paragraphe)
 }
 setTimeout(addContainerChilder , 2000)
 
-// Partie III 
+// Partie III : ajout d'un paragraphe tout les 2 secondes
 function addParagraphe(){
-    var paragraphe = document.createElement('p')
+    let paragraphe = document.createElement('p')
     paragraphe.textContent = 'Hello World'
     divContainer.appendChild(paragraphe)
+
+    let allParagraphe = document.getElementsByTagName('p')
+
+    // suppression de l'intervalle une fois qu'il y a 5 paragraphe de la div
+    if(allParagraphe.length == 5){
+        clearInterval(intervalToAdd)
+    }
 }
-var intervalToAdd = setInterval(addParagraphe , 2000)
+intervalToAdd = setInterval(addParagraphe , 2000)
+
+
+// suppression de l'intervalle après click sur le boutton
 btnClear.onclick = () =>{
     clearInterval(intervalToAdd)
 }
